@@ -6,6 +6,8 @@ using UnityEngine.PlayerLoop;
 public class Player_Controller : MonoBehaviour
 {
     public float maxSpeed = 5f;
+    public float jumpPower = 5f;
+
     Rigidbody2D rigidId ;
     SpriteRenderer spriteId;
 
@@ -16,7 +18,11 @@ public class Player_Controller : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonUp("Horizontal"))
+        //Jump
+        if (Input.GetButtonDown("Jump"))
+            rigidId.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+
+        if (Input.GetButtonUp("Horizontal"))
         {
             rigidId.velocity = new Vector2(rigidId.velocity.normalized.x * 0.5f, rigidId.velocity.y);
         }
