@@ -56,6 +56,7 @@ public class Mouse_Controller : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            Debug.Log("isDash!!");
             if(currDashCount > 0)
             {   
                 rigId.velocity = Vector2.zero;
@@ -63,8 +64,8 @@ public class Mouse_Controller : MonoBehaviour
                 dashing = true;
                 currDashCount--;
                 currDashTime = dashTime;
-                CreateDashEffectObject();
                 sprite.flipX = dashPosition.x < 0;
+                CreateDashEffectObject();
             }
         }
 
@@ -86,7 +87,7 @@ public class Mouse_Controller : MonoBehaviour
             rigId.velocity = Vector2.zero;
             dashing = false;
         }
-        animator.SetBool("isDash", dashing);
+        /*animator.SetBool("isDash", dashing);*/
     }
 
     public void dahsCountReset()
@@ -96,6 +97,6 @@ public class Mouse_Controller : MonoBehaviour
 
     private void CreateDashEffectObject()
     {
-        /*GameObject dashEffect = Instantiate(Resources.Load("../../Prefab/Dash Effect.prefab"), rigId.position, new Quaternion(rigId.position);*/
+
     }
 }

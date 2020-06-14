@@ -16,6 +16,8 @@ public class Player_Controller : MonoBehaviour
 
     Mouse_Controller mouseDash;
 
+    public Boolean isCommand;
+
     void Awake() {
         rigidId = GetComponent<Rigidbody2D>();
         spriteId = GetComponent<SpriteRenderer>();
@@ -36,6 +38,13 @@ public class Player_Controller : MonoBehaviour
             isGround = false;
 
         aniController.SetBool("isGround", isGround);
+
+
+
+        if (isCommand)
+            return;
+
+        // Move Action
 
         //Jump
         if (Input.GetButtonDown("Jump"))
